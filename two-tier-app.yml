@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: two-tier-app-pod
+
+spec:
+  containers:
+    - name: tow-tier-app-ctr
+      image: shoaibraj07/flaskapp:latest
+      env:
+        - name: MYSQL_HOST
+          value: "mysql"
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "admin"
+        - name: MYSQL_DB
+          value: "mydb"
+
+      ports:
+        - containerPort: 5000
+      imagePullPolicy: Always
